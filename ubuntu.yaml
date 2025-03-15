@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ubuntu
+spec:
+  containers:
+    - name: ubuntu
+      image: ghcr.io/mattn/ubuntu-mattn
+      command:
+        - sleep
+        - infinity
