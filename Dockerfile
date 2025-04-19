@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-RUN apt-get update && apt-get install -y sudo
+RUN apt-get update && apt-get install -y sudo tini
 
 ARG USERNAME=mattn
 ARG GROUPNAME=mattn
@@ -22,3 +22,6 @@ RUN usermod -l mattn ubuntu && \
 
 USER $USERNAME
 WORKDIR /home/$USERNAME/
+
+ENTRYPOINT ["/usr/bin/tini", "--"]
+CMD ["/bin/bash"]
